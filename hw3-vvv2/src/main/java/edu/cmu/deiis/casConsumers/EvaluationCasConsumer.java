@@ -1,7 +1,9 @@
 package edu.cmu.deiis.casConsumers;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -29,7 +31,8 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 	 * @param @Cas CAS Object whose data will be output to the console.
 	 */
 	@Override
-	public void processCas(CAS aCAS) throws ResourceProcessException {
+	public void processCas(CAS aCAS) throws ResourceProcessException 
+	{
 		JCas jcas;
 		try 
 		{
@@ -44,16 +47,29 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 		FSIndex evaluationIndex = jcas.getAnnotationIndex(Evaluation.type);
 		Iterator evaluationIter = evaluationIndex.iterator();
 
+		Set<Answer> seen = new HashSet<Answer>();
+		
 		while (evaluationIter.hasNext()) 
 		{
 			Evaluation evaluation = (Evaluation) evaluationIter.next();
 			FSArray sortedAnswers = evaluation.getSortedAnswers();
 			double precision = evaluation.getPrecision();
 			System.out.println("\nAnswers: ");
-
+			
 			for (int i = 0; i < sortedAnswers.size(); i++) 
-			{
+			{				
 				Answer sortedAnswer = (Answer) sortedAnswers.get(i);
+				
+				for (Answer ans : seen)
+				{
+					if (isEqual(ans, sortedAnswer))
+					{
+						continue;
+					}
+				}
+				
+				seen.add(sortedAnswer);
+				
 				FSArray tokens = sortedAnswer.getTokenList();
 
 				System.out.print("Answer: ");
@@ -91,5 +107,34 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 
 			System.out.println("Precision: " + precision);
 		}
+	}
+	
+	/**
+	 * Checks if two answers are equal.
+	 * @param a1 First Answer
+	 * @param a2 Second answer
+	 * @return true if answers a1 and a2 are equal. False otherwise.
+	 */
+	private static boolean isEqual(Answer a1, Answer a2)
+	{
+		FSArray a1Tokens = a1.getTokenList();
+		FSArray a2Tokens = a2.getTokenList();
+		
+		if (a1Tokens.size() < a2Tokens.size())
+		{
+			return false;
+		}
+		
+		int size = a1Tokens.size();
+		for (int i = 0; i < size; i++)
+		{
+			if (!(((Token) a1Tokens.get(i)).getText().
+					equals(((Token) a2Tokens.get(i)).getText())))
+			{
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

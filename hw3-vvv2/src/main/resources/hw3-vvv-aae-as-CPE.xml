@@ -5,6 +5,20 @@
             <descriptor>
                 <import location="collectionReaderDescriptors/collectionReaderDescriptor.xml"/>
             </descriptor>
+            <configurationParameterSettings>
+                <nameValuePair>
+                    <name>InputDirectory</name>
+                    <value>
+                        <string>/Users/vvvemuri1/git/hw3/hw3-vvv2/src/main/resources/inputData</string>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                    <name>OutputDirectory</name>
+                    <value>
+                        <string>/Users/vvvemuri1/git/hw3/hw3-vvv2/src/main/resources/outputData</string>
+                    </value>
+                </nameValuePair>
+            </configurationParameterSettings>
         </collectionIterator>
     </collectionReader>
     <casProcessors casPoolSize="3" processingUnitThreadCount="1">
