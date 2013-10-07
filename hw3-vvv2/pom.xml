@@ -98,4 +98,8 @@
 			<version>2.4.0</version>
 		</dependency>
 	</dependencies>
+	<scm>
+		<connection>scm:git:git@github.com:vvvemuri1/hw3.git</connection>
+		<developerConnection>scm:git:git@github.com:vvvemuri1/hw3.git</developerConnection>
+	</scm>
 </project>
