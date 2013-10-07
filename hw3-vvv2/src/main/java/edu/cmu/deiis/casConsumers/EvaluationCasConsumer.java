@@ -60,12 +60,18 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 			{				
 				Answer sortedAnswer = (Answer) sortedAnswers.get(i);
 				
+				boolean alreadySeen = false;
 				for (Answer ans : seen)
 				{
 					if (isEqual(ans, sortedAnswer))
 					{
-						continue;
+						alreadySeen = true;
 					}
+				}
+				
+				if (alreadySeen)
+				{
+					continue;
 				}
 				
 				seen.add(sortedAnswer);
