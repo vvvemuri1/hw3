@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="TestElementAnnotator">
+      <import name="primitiveAnalysisEngines.TestElementAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="TokenAnnotator">
+      <import name="primitiveAnalysisEngines.TokenAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="NGramAnnotator">
+      <import name="primitiveAnalysisEngines.NGramAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AnswerScoringAnnotator">
+      <import name="primitiveAnalysisEngines.AnswerScoringAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="EvaluationAnnotator">
+      <import name="primitiveAnalysisEngines.EvaluationAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="scnlp-vvv-client">
+      <import name="scnlp-vvv-client"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>hw2-vvv-aae</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>scnlp-vvv-client</node>
+      <node>TestElementAnnotator</node>
+        <node>TokenAnnotator</node>
+        <node>NGramAnnotator</node>
+        <node>AnswerScoringAnnotator</node>
+      <node>EvaluationAnnotator</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Evaluation</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
