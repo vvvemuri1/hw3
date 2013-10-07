@@ -3,7 +3,7 @@
     <collectionReader>
         <collectionIterator>
             <descriptor>
-                <import location="collectionReaders/collectionReaderDescriptor.xml"/>
+                <import location="collectionReaderDescriptors/collectionReaderDescriptor.xml"/>
             </descriptor>
         </collectionIterator>
     </collectionReader>
@@ -20,7 +20,7 @@
             </errorHandling>
             <checkpoint batch="10000" time="1000ms"/>
         </casProcessor>
-        <casProcessor deployment="integrated" name="EvaluationConsumer">
+        <casProcessor deployment="integrated" name="EvaluationCasConsumer">
             <descriptor>
                 <import location="casConsumers/EvaluationCasConsumer.xml"/>
             </descriptor>
