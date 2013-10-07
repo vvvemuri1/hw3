@@ -30,7 +30,8 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 		try 
 		{
 			jcas = aCAS.getJCas();
-		} catch (CASException e) 
+		} 
+		catch (CASException e) 
 		{
 			throw new ResourceProcessException(e);
 		}
