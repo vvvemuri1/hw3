@@ -13,14 +13,11 @@
     <delegateAnalysisEngine key="NGramAnnotator">
       <import name="primitiveAnalysisEngines.NGramAnnotator"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="AnswerScoringAnnotator">
-      <import name="primitiveAnalysisEngines.AnswerScoringAnnotator"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="EvaluationAnnotator">
       <import name="primitiveAnalysisEngines.EvaluationAnnotator"/>
     </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="scnlp-vvv-client">
-      <import name="scnlp-vvv-client"/>
+    <delegateAnalysisEngine key="Hw2AnswerScoringAnnotator">
+      <import name="primitiveAnalysisEngines.Hw2AnswerScoringAnnotator"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -32,12 +29,11 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>scnlp-vvv-client</node>
-      <node>TestElementAnnotator</node>
-        <node>TokenAnnotator</node>
+        <node>TestElementAnnotator</node>
+      <node>TokenAnnotator</node>
         <node>NGramAnnotator</node>
-        <node>AnswerScoringAnnotator</node>
-      <node>EvaluationAnnotator</node>
+        <node>Hw2AnswerScoringAnnotator</node>
+        <node>EvaluationAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
