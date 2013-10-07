@@ -97,7 +97,7 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
 	  }	  
 
 	  // Determine question and answer scores
-	  determineScores(question, answerList, answersScores);        
+	  determineScores(question, questionPOS, answerList, answersPOS, answersScores);        
 
 	  for (int i = 0; i < answers.size(); i++)
 	  {
@@ -125,8 +125,8 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
   	 * @param answerList List of answers being scored.
   	 * @param answersScores List that will contain the fully populated answer scores.
   	 */
-	private void determineScores(ArrayList<String> question,
-			ArrayList<ArrayList<String>> answerList,
+	private void determineScores(ArrayList<String> question, ArrayList<String> questionPOS,
+			ArrayList<ArrayList<String>> answerList, ArrayList<ArrayList<String>> answersPOS,
 			ArrayList<AnswerScore> answersScores) 
 	{
 		System.out.println("Size = " + answerList.size());
@@ -142,7 +142,8 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
 		  {
 			  for (int k = 0; k < answerList.get(i).size(); k++)
 			  {
-				  if (answerList.get(i).get(k).equals(question.get(j)))
+				  if (answerList.get(i).get(k).equals(question.get(j))
+					&& answersPOS.get(i).get(k).equals(questionPOS.get(j)))
 				  {
 					  if (k < alreadySeenToken.size())
 					  {
