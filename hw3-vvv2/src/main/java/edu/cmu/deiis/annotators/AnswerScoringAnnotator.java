@@ -155,6 +155,8 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
 				  }
 			  }			  
 		  }
+		  		  
+		  answersScores.get(i).setScore((answersScores.get(i).getScore())/answersScores.size());
 		       	  
 		  answersScores.get(i).addToIndexes();
 		}

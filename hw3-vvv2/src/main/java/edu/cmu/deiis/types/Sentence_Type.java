@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** SuperType of Question and Answer.
- * Updated by JCasGen Mon Oct 07 12:41:56 EDT 2013
+ * Updated by JCasGen Mon Oct 07 16:04:32 EDT 2013
  * @generated */
 public class Sentence_Type extends Annotation_Type {
   /** @generated */
@@ -84,7 +84,7 @@ public class Sentence_Type extends Annotation_Type {
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenList), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_tokenList), i);
-	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenList), i);
+  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenList), i);
   }
    
   /** @generated */ 

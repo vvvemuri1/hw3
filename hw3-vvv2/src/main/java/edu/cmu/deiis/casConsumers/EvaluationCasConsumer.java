@@ -53,11 +53,10 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 		{
 			Evaluation evaluation = (Evaluation) evaluationIter.next();
 			FSArray sortedAnswers = evaluation.getSortedAnswers();
-			double precision = evaluation.getPrecision();
-			System.out.println("\nAnswers: ");
-			
+			System.out.println();
+
 			for (int i = 0; i < sortedAnswers.size(); i++) 
-			{				
+			{		
 				Answer sortedAnswer = (Answer) sortedAnswers.get(i);
 				
 				boolean alreadySeen = false;
@@ -84,7 +83,7 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 				{
 					System.out.print(((Token) tokens.get(j)).getText() + " ");
 				}
-
+				
 				FSIndex answerScoringIndex = jcas.getAnnotationIndex(AnswerScore.type);
 				Iterator answerScoringIter = answerScoringIndex.iterator();
 
@@ -110,9 +109,9 @@ public class EvaluationCasConsumer extends CasConsumer_ImplBase implements
 
 				System.out.println();
 			}
-
-			System.out.println("Precision: " + precision);
 		}
+		
+		System.out.println();
 	}
 	
 	/**

@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.FSArray;
 
 
 /** Type representing unigram, bigram or trigram in question/answer.
- * Updated by JCasGen Mon Oct 07 12:41:56 EDT 2013
- * XML source: /Users/vvvemuri1/Desktop/hw2Workspace/hw3-vvv2/src/main/resources/descriptors/deiis_types.xml
+ * Updated by JCasGen Mon Oct 07 16:04:32 EDT 2013
+ * XML source: /Users/vvvemuri1/git/hw3/hw3-vvv2/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class NGram extends Annotation {
   /** @generated

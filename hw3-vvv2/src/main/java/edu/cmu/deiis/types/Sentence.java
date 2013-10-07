@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.FSArray;
 
 
 /** SuperType of Question and Answer.
- * Updated by JCasGen Mon Oct 07 12:41:56 EDT 2013
- * XML source: /Users/vvvemuri1/Desktop/hw2Workspace/hw3-vvv2/src/main/resources/descriptors/deiis_types.xml
+ * Updated by JCasGen Mon Oct 07 16:04:32 EDT 2013
+ * XML source: /Users/vvvemuri1/git/hw3/hw3-vvv2/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class Sentence extends Annotation {
   /** @generated

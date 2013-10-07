@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** Type representing unigram, bigram or trigram in question/answer.
- * Updated by JCasGen Mon Oct 07 12:41:56 EDT 2013
+ * Updated by JCasGen Mon Oct 07 16:04:32 EDT 2013
  * @generated */
 public class NGram_Type extends Annotation_Type {
   /** @generated */

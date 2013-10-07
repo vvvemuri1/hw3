@@ -11,7 +11,7 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 
 /** An n-gram of size 3.
- * Updated by JCasGen Mon Oct 07 12:41:56 EDT 2013
+ * Updated by JCasGen Mon Oct 07 16:04:32 EDT 2013
  * @generated */
 public class Trigram_Type extends NGram_Type {
   /** @generated */
