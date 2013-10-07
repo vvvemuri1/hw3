@@ -129,7 +129,6 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
 			ArrayList<ArrayList<String>> answerList, ArrayList<ArrayList<String>> answersPOS,
 			ArrayList<AnswerScore> answersScores) 
 	{
-		System.out.println("Size = " + answerList.size());
 		for (int i = 0; i < answerList.size(); i++)
 		{
 		  ArrayList<Boolean> alreadySeenToken = new ArrayList<Boolean>(answerList.get(i).size());
@@ -138,20 +137,23 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
 			  alreadySeenToken.add(false);
 		  }
 		    
+		  int startK = 0;
+		  
 		  for (int j = 0; j < question.size(); j++)
 		  {
-			  for (int k = 0; k < answerList.get(i).size(); k++)
+			  for (int k = startK; k < answerList.get(i).size(); k++)
 			  {
 				  if (answerList.get(i).get(k).equals(question.get(j))
 					&& answersPOS.get(i).get(k).equals(questionPOS.get(j)))
 				  {
 					  if (k < alreadySeenToken.size())
 					  {
+						  startK = k;
 						  alreadySeenToken.set(k, true);
 						  answersScores.get(i).setScore(answersScores.get(i).getScore() + 1);
 					  }
 				  }
-			  }    		  
+			  }			  
 		  }
 		       	  
 		  answersScores.get(i).addToIndexes();
